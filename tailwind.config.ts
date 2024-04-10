@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      margin: {
+        "navbar": "20%"
+      },
       colors: {
         navbar: "#0C4A6E"
       },
