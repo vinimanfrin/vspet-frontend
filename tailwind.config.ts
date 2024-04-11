@@ -12,7 +12,9 @@ const config: Config = {
         "navbar": "20%"
       },
       colors: {
-        navbar: "#0C4A6E"
+        navbar: "#0C4A6E",
+        labelinput: "#0284C7",
+        colorinput: "#BAE6FD"
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
