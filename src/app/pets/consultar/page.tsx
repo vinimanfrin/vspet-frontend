@@ -2,22 +2,19 @@
 
 import InputPersonalizado from "@/components/InputPersonalizado";
 import Template from "@/components/Template";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Pet from "@/app/resources/pet/pet.resource";
-import Link from "next/link";
 import PetCard from "@/components/PetCard";
+import { getByCpf } from "@/app/actions/pets/pet.getByCpf";
 
 const ConsultarPet = () => {
 
     const [cpfResponsavel, setCpfResponsavel] = useState("");
-    const [pets, setPets] = useState<Pet[]>([new Pet(1,"pet exemplo","Responsável exemplo","11111111","40028922","viralata","caramelo")]);
-
-    useEffect(() => {
-        console.log(pets);
-    }, [pets]);
+    const [pets, setPets] = useState<Pet[]>([]);
 
     async function getPets(){
-        await setPets([...pets, new Pet(2,"Lorena","Vinicius","222222","40028922","pug","bafo de onça")]);
+        const result = await getByCpf(cpfResponsavel);
+        setPets(result);
         setCpfResponsavel("");
     }
 

@@ -1,5 +1,5 @@
 export default class Pet {
-    id?: number
+    id: number
     nome?:string
     nomeResponsavel?:string
     cpfResponsavel?:string
@@ -7,7 +7,7 @@ export default class Pet {
     raca?:string
     observacoes?:string
 
-    constructor(id?: number, nome?: string, nomeResponsavel?: string, cpfResponsavel?: string, telefone?: string, raca?: string, observacoes?: string) {
+    constructor(id: number, nome?: string, nomeResponsavel?: string, cpfResponsavel?: string, telefone?: string, raca?: string, observacoes?: string) {
         this.id = id;
         this.nome = nome;
         this.nomeResponsavel = nomeResponsavel;

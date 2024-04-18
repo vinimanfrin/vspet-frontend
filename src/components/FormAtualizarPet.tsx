@@ -2,9 +2,13 @@
 
 import { useState } from "react";
 import InputPersonalizado from "./InputPersonalizado";
-import {create} from "@/app/actions/pets/pet.create";
+import { update } from "@/app/actions/pets/pet.update";
 
-const FormNovoPet: React.FC = () => {
+interface FormAtualizarProps {
+    id:number
+}
+
+const FormAtualizarPet: React.FC<FormAtualizarProps> = (props: FormAtualizarProps) => {
     
     const [nomePet, setNomePet] = useState("");
     const [nomeResponsavel, setNomeResponsavel] = useState("");
@@ -24,7 +28,7 @@ const FormNovoPet: React.FC = () => {
         formData.append("raca", raca);
         formData.append("observacoes", observacoes);
 
-        await create(formData)
+        await update(formData,props.id)
 
         setNomePet("");
         setNomeResponsavel("");
@@ -43,10 +47,10 @@ const FormNovoPet: React.FC = () => {
             <InputPersonalizado label="Raça" onChange={setRaca} value={raca}/>
             <InputPersonalizado label="Observações" onChange={setObservacoes} value={observacoes}/>
 
-            <button className="my-10 text-white bg-navbar p-4 rounded-md" type="submit">Enviar</button>
+            <button className="my-10 text-white bg-navbar p-4 rounded-md" type="submit">Atualizar</button>
         </form>
         
     )
 }
 
-export default FormNovoPet;
+export default FormAtualizarPet;
